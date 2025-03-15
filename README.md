@@ -77,5 +77,4 @@ Feel free to fork this repository, make improvements, and submit a pull request.
 This project is licensed under the MIT License.
 
 ## Contact
-For any issues or suggestions, feel free to reach out via GitHub Issues.
-```🚀
+For any issues or suggestions, feel free to reach out via GitHub Issues.🚀
