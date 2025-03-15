@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Format File Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center text-primary">Multi-Format File Converter</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <ul class="nav nav-tabs" id="converterTabs">
+            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#pdfToDocx">PDF to DOCX</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#docxToPdf">DOCX to PDF</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#txtToPdf">TXT to PDF/DOCX</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#pptxToPdf">PPTX to PDF</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#imgToPdf">Image (JPG/PNG) to PDF</a></li>
+        </ul>
+
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="pdfToDocx">
+                <div class="card shadow p-4">
+                    <h5 class="text-center">Convert PDF to DOCX</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="convert_to" value="docx">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" name="file" accept=".pdf" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Convert</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="docxToPdf">
+                <div class="card shadow p-4">
+                    <h5 class="text-center">Convert DOCX to PDF</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="convert_to" value="pdf">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" name="file" accept=".docx" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Convert</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="txtToPdf">
+                <div class="card shadow p-4">
+                    <h5 class="text-center">Convert TXT to PDF or DOCX</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="txtFormat" class="form-label">Select Output Format:</label>
+                            <select class="form-control" name="convert_to" required>
+                                <option value="pdf">Convert to PDF</option>
+                                <option value="docx">Convert to DOCX</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" class="form-control" name="file" accept=".txt" required>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100">Convert</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pptxToPdf">
+                <div class="card shadow p-4">
+                    <h5 class="text-center">Convert PPTX to PDF</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="convert_to" value="pdf">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" name="file" accept=".pptx" required>
+                        </div>
+                        <button type="submit" class="btn btn-info w-100">Convert</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="imgToPdf">
+                <div class="card shadow p-4">
+                    <h5 class="text-center">Convert Image (JPG/PNG) to PDF</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="convert_to" value="pdf">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" name="file" accept=".jpg,.jpeg,.png" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">Convert</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer style="margin-top: 20px; padding: 15px 20px; background-color: #000; color: #fff; text-align: center; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+            <p style="font-size: 16px; font-family: Arial, sans-serif; line-height: 1.6; font-weight: bold; color: #fff;">
+                © 2025 Kritrim Intelligence | Secure File Conversion
+            </p>
+            <p style="font-size: 16px; font-family: Arial, sans-serif; line-height: 1.6; font-weight: bold; color: #fff;">
+                Explore more about Machine learning, Robotics and other AI topics at 
+                <a style="color: #4caf50; font-weight: bold; text-decoration: none; transition: color 0.3s ease;" 
+                   href="https://kritrimintelligence.com" target="_blank" rel="noopener"> Kritrim Intelligence</a>.
+            </p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
